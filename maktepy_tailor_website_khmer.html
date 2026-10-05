@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="km" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ម៉ាក់តេពី ថែល័រ (MakTepy Tailor) | ហាងកាត់ដេរ និងសំលៀកបំពាក់នារីទាន់សម័យ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Kantumruy Pro & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,300..700;1,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fbf8ee',
+                            100: '#f5ecd3',
+                            200: '#ebd9a7',
+                            300: '#dfc277',
+                            400: '#d4aa4b',
+                            500: '#c5932e',
+                            600: '#a77622',
+                            700: '#84581c',
+                            800: '#6c461c',
+                            900: '#5a3b1a',
+                        },
+                        roseGold: {
+                            50: '#fdf5f5',
+                            100: '#fbe8e8',
+                            200: '#f6d5d5',
+                            300: '#efb4b4',
+                            400: '#e48888',
+                            500: '#d76161',
+                            600: '#c24141',
+                            700: '#a33333',
+                            800: '#872e2e',
+                            900: '#702b2b',
+                        },
+                        brandDark: '#1a1818',
+                        brandLight: '#fcfbfa'
+                    },
+                    fontFamily: {
+                        khmer: ['Kantumruy Pro', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Kantumruy Pro', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #fcfbfa;
+            color: #1a1818;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f5ecd3;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5932e;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brandLight text-brandDark antialiased selection:bg-gold-200 selection:text-gold-900">
+
+    <header class="sticky top-0 z-40 bg-brandLight/95 backdrop-blur-md border-b border-gold-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-600 to-gold-400 flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                    ម
+                </div>
+                <div>
+                    <span class="font-bold text-xl tracking-wide text-brandDark">ម៉ាក់តេពី ថែល័រ</span>
+                    <span class="block text-[11px] uppercase tracking-widest text-gold-600 font-semibold">MakTepy Tailor</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm tracking-wide">
+                <a href="#home" class="hover:text-gold-600 transition-colors py-2 border-b-2 border-transparent hover:border-gold-500">ទំព័រដើម</a>
+                <a href="#collection" class="hover:text-gold-600 transition-colors py-2 border-b-2 border-transparent hover:border-gold-500">កាតាឡុកសំលៀកបំពាក់</a>
+                <a href="#custom-tailoring" class="hover:text-gold-600 transition-colors py-2 border-b-2 border-transparent hover:border-gold-500">សេវាកម្មកុម្ម៉ង់កាត់</a>
+                <a href="#about" class="hover:text-gold-600 transition-colors py-2 border-b-2 border-transparent hover:border-gold-500">អំពីយើង</a>
+                <a href="#testimonials" class="hover:text-gold-600 transition-colors py-2 border-b-2 border-transparent hover:border-gold-500">ការវាយតម្លៃ</a>
+            </nav>
+
+            <!-- Actions (Cart & Mobile Menu) -->
+            <div class="flex items-center space-x-4">
+                <!-- Cart Trigger Button -->
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full bg-gold-50 text-gold-800 hover:bg-gold-100 transition-colors focus:outline-none" aria-label="កន្ត្រកទំនិញ">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-gold-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold shadow">0</span>
+                </button>
+
+                <!-- Book CTA Button (Desktop) -->
+                <a href="#custom-tailoring" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 border border-gold-500 text-gold-700 hover:bg-gold-500 hover:text-white rounded-full font-medium text-sm transition-all shadow-sm">
+                    កុម្ម៉ង់កាត់ផ្ទាល់ខ្លួន
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-brandDark hover:bg-gold-50 focus:outline-none">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brandLight border-b border-gold-100 px-6 py-6 space-y-4 shadow-lg transition-all">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-base font-medium hover:text-gold-600">ទំព័រដើម</a>
+            <a href="#collection" onclick="toggleMobileMenu()" class="block text-base font-medium hover:text-gold-600">កាតាឡុកសំលៀកបំពាក់</a>
+            <a href="#custom-tailoring" onclick="toggleMobileMenu()" class="block text-base font-medium hover:text-gold-600">សេវាកម្មកុម្ម៉ង់កាត់</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-base font-medium hover:text-gold-600">អំពីយើង</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block text-base font-medium hover:text-gold-600">ការវាយតម្លៃអតិថិជន</a>
+            <div class="pt-2">
+                <a href="#custom-tailoring" onclick="toggleMobileMenu()" class="w-full text-center block py-3 bg-gold-600 text-white rounded-full font-medium shadow-md">កុម្ម៉ង់កាត់ស្ទូឌីយ៉ូ</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative bg-gradient-to-b from-gold-50/60 via-brandLight to-brandLight py-16 lg:py-28 overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-gold-200/30 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-roseGold-100/40 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gold-100/75 border border-gold-300 text-gold-900 text-xs font-semibold tracking-wide">
+                        <i class="fa-solid fa-crown text-gold-600"></i>
+                        <span>ជាងកាត់ដេរជំនាញប្រកបដោយគុណភាពខ្ពស់</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-brandDark leading-snug">
+                        ភាពប្រណិត ទាន់សម័យ <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-600 to-roseGold-600">កាត់ដេរយ៉ាងល្អឥតខ្ចោះសម្រាប់នារីសម័យថ្មី</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        សូមស្វាគមន៍មកកាន់ <strong class="text-brandDark">ម៉ាក់តេពី ថែល័រ (MakTepy Tailor)</strong>។ យើងខ្ញុំមានទទួលកាត់ដេរ និងលក់សំលៀកបំពាក់នារីប្រណិតៗ ដូចជារ៉ូបរៀបការប្រពៃណី រ៉ូបរាត្រីសមោសរ សំពត់អាវប៉ាក់ខ្មែរ និងឈុតធ្វើការទាន់សម័យ ស្របតាមរាងកាយរបស់អ្នកផ្ទាល់។
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-2">
+                        <a href="#collection" class="w-full sm:w-auto px-8 py-4 bg-brandDark text-white hover:bg-gold-700 rounded-full font-medium tracking-wide transition-all shadow-lg text-center">
+                            មើលកាតាឡុកទំនិញ
+                        </a>
+                        <a href="#custom-tailoring" class="w-full sm:w-auto px-8 py-4 bg-white border-2 border-gold-500 text-gold-700 hover:bg-gold-50 rounded-full font-medium tracking-wide transition-all text-center shadow-sm">
+                            កុម្ម៉ង់កាត់តាមខ្នាតរាង
+                        </a>
+                    </div>
+                    <!-- Stats -->
+                    <div class="pt-8 border-t border-gold-200/60 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl font-bold text-gold-700">១៥+</p>
+                            <p class="text-xs text-gray-500 font-medium">ឆ្នាំបទពិសោធន៍</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-gold-700">១,២០០+</p>
+                            <p class="text-xs text-gray-500 font-medium">រ៉ូបអាពាហ៍ពិពាហ៍</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl font-bold text-gold-700">១០០%</p>
+                            <p class="text-xs text-gray-500 font-medium">ការពេញចិត្តលើខ្នាត</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-2 rounded-3xl bg-gradient-to-r from-gold-400 to-roseGold-400 opacity-30 blur-lg"></div>
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white aspect-[4/5]">
+                            <img src="https://images.unsplash.com/photo-1594552072238-b8a3da72ae8a?auto=format&fit=crop&q=80&w=800" 
+                                 alt="MakTepy Tailor Wedding Dress" 
+                                 class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/600x800/f5ecd3/84581c?text=MakTepy+Tailor'">
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-gold-200 flex items-center space-x-3 max-w-[260px]">
+                            <div class="w-12 h-12 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0">
+                                <i class="fa-solid fa-star text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-gray-900">ស្តង់ដារជាងជំនាញ</p>
+                                <p class="text-[11px] text-gray-500">ប៉ាក់ដៃ និងសាច់ក្រណាត់លំដាប់ខ្ពស់។</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="py-20 bg-white border-t border-gold-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase bg-gold-50 px-3 py-1 rounded-full border border-gold-200">
+                    សំលៀកបំពាក់ត្រៀមលក់ និងកុម្ម៉ង់
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-brandDark mt-3 mb-4">
+                    កាតាឡុកសំលៀកបំពាក់នារីប្រណិតៗ
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base">
+                    ស្វែងរកឈុតប្រពៃណីខ្មែរ រ៉ូបរៀបការ រ៉ូបរាត្រីសមោសរ និងឈុតធ្វើការដែលត្រូវបានច្នៃប្រឌិតយ៉ាងផ្ចិតផ្ចង់។ លោកអ្នកអាចកុម្ម៉ង់ទិញផ្ទាល់ ឬបញ្ជាក់ទំហំរាងកាយដើម្បីកាត់តាមខ្នាត។
+                </p>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterCollection('all')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gold-600 text-white shadow-sm" data-filter="all">គ្រប់មុខទំនិញ</button>
+                    <button onclick="filterCollection('wedding')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gold-100 hover:text-gold-800" data-filter="wedding">រ៉ូបរៀបការ</button>
+                    <button onclick="filterCollection('silk')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gold-100 hover:text-gold-800" data-filter="silk">ឈុតប្រពៃណីខ្មែរ (សូត្រ)</button>
+                    <button onclick="filterCollection('gown')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gold-100 hover:text-gold-800" data-filter="gown">រ៉ូបរាត្រីសមោសរ</button>
+                    <button onclick="filterCollection('workwear')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gold-100 hover:text-gold-800" data-filter="workwear">ឈុតធ្វើការទាន់សម័យ</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="custom-tailoring" class="py-20 bg-gradient-to-b from-brandLight via-gold-50/40 to-brandLight border-t border-gold-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+                        សេវាកម្មកុម្ម៉ង់កាត់ផ្ទាល់ខ្លួន
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brandDark">
+                        កុម្ម៉ង់កាត់សំលៀកបំពាក់តាមខ្នាតរាងកាយរបស់អ្នក
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        តើអ្នកមានម៉ូដក្នុងចិត្តហើយឬនៅ? មិនថាជាឈុតពិធីមង្គលការ សំលៀកបំពាក់បុណ្យទាន ឬរ៉ូបចូលរួមកម្មវិធីផ្សេងៗ ជាងជំនាញរបស់យើងខ្ញុំនឹងបំពេញបំណងរបស់អ្នកឱ្យស្រស់ស្អាតឥតខ្ចោះ។
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-ruler"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brandDark text-base">១. បញ្ចូលទំហំរាងកាយ</h4>
+                                <p class="text-xs sm:text-sm text-gray-500">បំពេញទំហំទ្រូង ចង្កេះ ត្រគាក និងកម្ពស់របស់អ្នក ឬមកវាស់ផ្ទាល់នៅស្ទូឌីយ៉ូ។</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-scissors"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brandDark text-base">២. ដំណើរការកាត់ដេរយ៉ាងផ្ចិតផ្ចង់</h4>
+                                <p class="text-xs sm:text-sm text-gray-500">ជ្រើសរើសសាច់ក្រណាត់សូត្រសុទ្ធ សាច់ស្បៃ និងគ្រឿងតុបតែងប្រណិត។</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brandDark text-base">៣. ការបំពាក់បំប៉ន និងប្រគល់ជូន</h4>
+                                <p class="text-xs sm:text-sm text-gray-500">ទទួលយកឈុតដ៏ស្រស់ស្អាតត្រៀមខ្លួនសម្រាប់ថ្ងៃពិសេសរបស់អ្នក។</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-gold-200 relative">
+                    <div class="absolute top-0 right-0 bg-gold-600 text-white text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-bl-2xl rounded-tr-3xl shadow">
+                        ទម្រង់កុម្ម៉ង់កាត់
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-brandDark mb-6">បំពេញព័ត៌មានកុម្ម៉ង់កាត់របស់អ្នក</h3>
+
+                    <form id="tailoring-form" onsubmit="handleTailoringSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">ឈ្មោះពេញរបស់អ្នក *</label>
+                                <input type="text" id="cust-name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-all text-sm" placeholder="ឧ. កែវ ច័ន្ទធីតា">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">លេខទូរស័ព្ទ / Telegram *</label>
+                                <input type="tel" id="cust-phone" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-all text-sm" placeholder="០១២ ៣៤៥ ៦៧៨">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">ប្រភេទសំលៀកបំពាក់ *</label>
+                                <select id="cust-garment" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-all text-sm bg-white">
+                                    <option value="">-- ជ្រើសរើសប្រភេទឈុត --</option>
+                                    <option value="Traditional Wedding Dress">រ៉ូបរៀបការប្រពៃណី</option>
+                                    <option value="Custom Evening Gown">រ៉ូបរាត្រីសមោសរ</option>
+                                    <option value="Khmer Silk Outfit">ឈុតសូត្រប្រពៃណីខ្មែរ (អាវ-សំពត់)</option>
+                                    <option value="Modern Workwear Set">ឈុតធ្វើការទាន់សម័យ</option>
+                                    <option value="Party & Special Dress">រ៉ូបចូលរួមកម្មវិធីផ្សេងៗ</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">កាលបរិច្ឆេទត្រូវប្រើប្រាស់ *</label>
+                                <input type="date" id="cust-date" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <!-- Measurements Box -->
+                        <div class="bg-gold-50/60 p-5 rounded-2xl border border-gold-200">
+                            <h4 class="text-sm font-bold text-gold-900 mb-3 flex items-center">
+                                <i class="fa-solid fa-ruler-combined mr-2 text-gold-600"></i> ទំហំរាងកាយ (ជា អ៊ីញ ឬ សង់ទីម៉ែត្រ)
+                            </h4>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">ទំហំទ្រូង (Bust)</label>
+                                    <input type="text" id="meas-bust" placeholder="ឧ. ៣៤ អ៊ីញ" class="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-sm focus:ring-1 focus:ring-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">ចង្កេះ (Waist)</label>
+                                    <input type="text" id="meas-waist" placeholder="ឧ. ២៦ អ៊ីញ" class="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-sm focus:ring-1 focus:ring-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">ត្រគាក (Hips)</label>
+                                    <input type="text" id="meas-hips" placeholder="ឧ. ៣៦ អ៊ីញ" class="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-sm focus:ring-1 focus:ring-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">កម្ពស់ / ទម្ងន់</label>
+                                    <input type="text" id="meas-height" placeholder="ឧ. ១៦៥សីមា / ៥០គីឡូ" class="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-sm focus:ring-1 focus:ring-gold-500">
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-gray-500 mt-2 italic">* បើមិនច្បាស់ពីខ្នាត ជាងជំនាញរបស់យើងខ្ញុំនឹងជួយវាស់ជូនផ្ទាល់ពេលមកដល់ស្ទូឌីយ៉ូ។</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">ចំណាំបន្ថែម ឬពណ៌ដែលចង់បាន</label>
+                            <textarea id="cust-notes" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-all text-sm" placeholder="ឧ. ចង់បានពណ៌មាសលាយផ្កាឈូក ច្នៃម៉ូដបែបបុរាណទន់ភ្លន់..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-gold-600 to-gold-500 text-white font-medium rounded-xl shadow-lg hover:from-gold-700 hover:to-gold-600 transition-all text-center tracking-wide">
+                            បញ្ជូនសំណើកុម្ម៉ង់កាត់ដេរ
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white border-t border-gold-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=600" alt="Tailoring Studio" class="rounded-2xl shadow-md object-cover h-64 w-full" onerror="this.src='https://placehold.co/400x400/f5ecd3/84581c?text=Studio'">
+                            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=600" alt="Silk Dress" class="rounded-2xl shadow-md object-cover h-48 w-full" onerror="this.src='https://placehold.co/400x300/f5ecd3/84581c?text=Details'">
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=600" alt="Gown" class="rounded-2xl shadow-md object-cover h-48 w-full" onerror="this.src='https://placehold.co/400x300/f5ecd3/84581c?text=Gown'">
+                            <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?auto=format&fit=crop&q=80&w=600" alt="Tailor" class="rounded-2xl shadow-md object-cover h-64 w-full" onerror="this.src='https://placehold.co/400x400/f5ecd3/84581c?text=Tailor'">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase bg-gold-50 px-3 py-1 rounded-full border border-gold-200">
+                        អំពី ម៉ាក់តេពី ថែល័រ
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brandDark">
+                        សិប្បកម្មកាត់ដេរដែលរួមបញ្ចូលគ្នារវាងប្រពៃណី និងភាពទាន់សម័យ
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        បង្កើតឡើងដោយអ្នករចនាម៉ូដចាស់វស្សា ម៉ាក់តេពី ថែល័រ បានបម្រើសេវាកម្មជូនអតិថិជនជាច្រើនឆ្នាំមកហើយ ដោយផ្តោតលើគុណភាពខ្ពស់ ការប៉ាក់ដៃយ៉ាងប្រណិត និងការយល់ច្បាស់ពីសោភ័ណភាពរបស់នារីខ្មែរ។
+                    </p>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        យើងខ្ញុំជ្រើសរើសយកសាច់ក្រណាត់សូត្រសុទ្ធ សាច់ស្បៃ និងវត្ថុធាតុដើមនាំចូលលំដាប់ខ្ពស់ ដើម្បីធានាថាជារៀងរាល់ឈុតដែលអ្នកពាក់ គឺពោរពេញដោយភាពស្រស់ស្អាត សេចក្តីថ្លៃថ្នូរ និងទំនុកចិត្ត។
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="border-l-4 border-gold-500 pl-4">
+                            <h4 class="font-bold text-brandDark text-base">សាច់ក្រណាត់ប្រណិត</h4>
+                            <p class="text-xs sm:text-sm text-gray-500">សូត្រធម្មជាតិ និងក្រណាត់នាំចូលសុទ្ធសាធ។</p>
+                        </div>
+                        <div class="border-l-4 border-gold-500 pl-4">
+                            <h4 class="font-bold text-brandDark text-base">ខ្នាតល្មមត្រូវរាង</h4>
+                            <p class="text-xs sm:text-sm text-gray-500">វាស់និងកាត់ដេរផ្ទាល់សម្រាប់រាងកាយនារីម្នាក់ៗ។</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 bg-gold-50/50 border-t border-gold-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-600 font-semibold text-xs tracking-widest uppercase bg-white px-3 py-1 rounded-full border border-gold-200">
+                    ចំណាប់អារម្មណ៍អតិថិជន
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-brandDark mt-3 mb-4">
+                    មតិយោបល់ពីអគ្គនាយិកា និងអតិថិជនកិត្តិយស
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base">ស្វែងយល់ពីមូលហេតុដែលអតិថិជនវ័យ ២៥-៤០ឆ្នាំ ទុកចិត្តជ្រើសរើស ម៉ាក់តេពី ថែល័រ សម្រាប់ថ្ងៃសំខាន់ៗរបស់ពួកគេ។</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border border-gold-100 relative">
+                    <div class="flex text-gold-500 space-x-1 mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 text-sm sm:text-base">"ខ្ញុំបានកាត់ឈុតរៀបការប្រពៃណីនៅទីនេះ គឺស្អាតខ្លាំងមែនទែន! ការប៉ាក់ដៃ និងទំហំរាងគឺត្រូវឥតខ្ចោះ ញាត្តិមិត្តសរសើរគ្រប់គ្នា។"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-200 flex items-center justify-center font-bold text-gold-800">
+                            ចន
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brandDark text-sm">កែវ ច័ន្ទនី</h4>
+                            <p class="text-xs text-gray-500">អតិថិជនរ៉ូបអាពាហ៍ពិពាហ៍</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border border-gold-100 relative">
+                    <div class="flex text-gold-500 space-x-1 mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 text-sm sm:text-base">"រ៉ូបរាត្រីសមោសរដែលកាត់នៅ ម៉ាក់តេពី គឺទាន់សម័យនិងមានសាច់ក្រណាត់ទន់ល្ម្មត់ល្អណាស់។ សេវាកម្មរហ័សរហួន និងរាក់ទាក់ជាទីបំផុត។"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-200 flex items-center justify-center font-bold text-gold-800">
+                            ស្រី
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brandDark text-sm">សេង ស្រីរ័ត្ន</h4>
+                            <p class="text-xs text-gray-500">អតិថិជនរ៉ូបរាត្រីសមោសរ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border border-gold-100 relative">
+                    <div class="flex text-gold-500 space-x-1 mb-4">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic mb-6 text-sm sm:text-base">"ការកុម្ម៉ង់កាត់តាមអនឡាញងាយស្រួល ហើយពេលទៅវាស់ផ្ទាល់ក៏មានការយកចិត្តទុកដាក់ខ្ពស់។ ខ្ញុំពិតជាពេញចិត្តឈុតធ្វើការសូត្រកាត់ថ្មីនេះខ្លាំងណាស់។"</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-gold-200 flex items-center justify-center font-bold text-gold-800">
+                            ដា
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-brandDark text-sm">លី ដាលីន</h4>
+                            <p class="text-xs text-gray-500">អតិថិជនឈុតធ្វើការប្រណិត</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="toggleCart()"></div>
+
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Cart Header -->
+                <div class="p-6 bg-gold-50 border-b border-gold-100 flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-bag-shopping text-gold-700 text-xl"></i>
+                        <h2 class="text-lg font-bold text-brandDark">កន្ត្រកទំនិញរបស់អ្នក</h2>
+                    </div>
+                    <button onclick="toggleCart()" class="p-2 text-gray-500 hover:text-brandDark rounded-full hover:bg-gold-100 transition-colors">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-gray-100">
+                    <!-- Dynamic cart items -->
+                </div>
+
+                <!-- Cart Footer -->
+                <div class="p-6 bg-brandLight border-t border-gold-100 space-y-4">
+                    <div class="flex justify-between text-base font-medium text-gray-900">
+                        <p>សរុបរង (Subtotal)</p>
+                        <p id="cart-subtotal" class="font-bold text-lg text-gold-700">$០.០០</p>
+                    </div>
+                    <p class="text-xs text-gray-500">តម្លៃដឹកជញ្ជូន និងការពិនិត្យខ្នាតនឹងត្រូវគណនាពេលទូទាត់។</p>
+                    <button onclick="checkoutCart()" class="w-full py-4 bg-brandDark hover:bg-gold-700 text-white font-medium rounded-xl shadow-lg transition-all text-center tracking-wide">
+                        បញ្ជាក់ការបញ្ជាទិញ (Checkout)
+                    </button>
+                    <button onclick="toggleCart()" class="w-full py-2.5 bg-transparent text-gray-600 hover:text-brandDark font-medium text-sm transition-colors text-center">
+                        បន្តទិញទំនិញ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-brandDark text-gray-300 pt-16 pb-12 border-t border-gold-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-600 to-gold-400 flex items-center justify-center text-white font-bold text-xl">
+                            ម
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-wide">ម៉ាក់តេពី ថែល័រ</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                        ហាងកាត់ដេរនិងសំលៀកបំពាក់នារីប្រណិត លក់រាយនិងកុម្ម៉ង់កាត់តាមខ្នាតរាង កសាងទំនុកចិត្តនិងភាពស្រស់ស្អាតជូននារីខ្មែរ។
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-600 flex items-center justify-center text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-600 flex items-center justify-center text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-600 flex items-center justify-center text-white transition-colors" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gold-600 flex items-center justify-center text-white transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">តំណភ្ជាប់រហ័ស</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#home" class="hover:text-gold-400 transition-colors">ទំព័រដើម</a></li>
+                        <li><a href="#collection" class="hover:text-gold-400 transition-colors">កាតាឡុកសំលៀកបំពាក់</a></li>
+                        <li><a href="#custom-tailoring" class="hover:text-gold-400 transition-colors">សេវាកម្មកុម្ម៉ង់កាត់</a></li>
+                        <li><a href="#about" class="hover:text-gold-400 transition-colors">អំពីយើងខ្ញុំ</a></li>
+                        <li><a href="#testimonials" class="hover:text-gold-400 transition-colors">ការវាយតម្លៃអតិថិជន</a></li>
+                    </ul>
+                </div>
+
+                <!-- Specialties -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">សេវាកម្មចម្បង</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><span class="hover:text-gold-400 transition-colors">រ៉ូបរៀបការប្រពៃណីខ្មែរ</span></li>
+                        <li><span class="hover:text-gold-400 transition-colors">ឈុតសូត្រប្រពៃណី (អាវ-សំពត់)</span></li>
+                        <li><span class="hover:text-gold-400 transition-colors">រ៉ូបរាត្រីសមោសរប្រណិត</span></li>
+                        <li><span class="hover:text-gold-400 transition-colors">ឈុតធ្វើការនារីទាន់សម័យ</span></li>
+                        <li><span class="hover:text-gold-400 transition-colors">ការកែខ្នាតសំលៀកបំពាក់គ្រប់ប្រភេទ</span></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Location -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ទីតាំង និងម៉ោងធ្វើការ</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-gold-500 mt-1"></i>
+                            <span>ផ្ទះលេខ ៨៨, វិថីព្រះសីហនុ, រាជធានីភ្នំពេញ, ប្រទេសកម្ពុជា</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-gold-500"></i>
+                            <span>០១២ ៨៨៨ ៩៩៩ / ០២៣ ៧៧៧ ៦៦៦</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-clock text-gold-500"></i>
+                            <span>ច័ន្ទ - អាទិត្យ: ៩:០០ ព្រឹក - ៧:០០ ល្ងាច</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; ២០២៦ ម៉ាក់តេពី ថែល័រ (MakTepy Tailor)។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <a href="#" class="hover:text-gold-400 transition-colors">គោលការណ៍ឯកជនភាព</a>
+                    <a href="#" class="hover:text-gold-400 transition-colors">លក្ខខណ្ឌសេវាកម្ម</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 space-y-3 pointer-events-none"></div>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "រ៉ូបសូត្រប្រពៃណីខ្មែរពណ៌មាសអប្សរា",
+                category: "wedding",
+                price: 450.00,
+                rating: 5.0,
+                reviews: 28,
+                image: "https://images.unsplash.com/photo-1594552072238-b8a3da72ae8a?auto=format&fit=crop&q=80&w=600",
+                description: "សូត្រសុទ្ធហត្ថកម្មខេត្តស្វាយរៀង ប៉ាក់មាសប្រណិត និងសារហรព្រះកាយយ៉ាងស្រស់ស្អាត។"
+            },
+            {
+                id: 2,
+                name: "រ៉ូបមង្គលការពណ៌ក្រហមឆ្អិនឆ្អៅ",
+                category: "wedding",
+                price: 380.00,
+                rating: 4.9,
+                reviews: 19,
+                image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600",
+                description: "រ៉ូបរៀបការពណ៌ក្រហមទាន់សម័យ ច្នៃម៉ូដកអាវបាក់ខ្សែករាងបេះដូង និងក្បាច់ប៉ាក់ដៃយ៉ាងប្រណិត។"
+            },
+            {
+                id: 3,
+                name: "ឈុតសំពត់ហូល និងអាវស្បៃពណ៌ផ្កាឈូកខ្ចី",
+                category: "silk",
+                price: 220.00,
+                rating: 4.8,
+                reviews: 34,
+                image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80&w=600",
+                description: "សំពត់ហូលគោមម៉ូដថ្មី တွូសជាមួយអាវស្បៃកាត់ស៊ីជំរៅរាងកាយយ៉ាងស្រឡូន។"
+            },
+            {
+                id: 4,
+                name: "រ៉ូបរាត្រីសមោសរពណ៌បៃតងត្បូងមរកត",
+                category: "gown",
+                price: 320.00,
+                rating: 5.0,
+                reviews: 15,
+                image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=600",
+                description: "រ៉ូបវែងអូសសាច់សូត្រសាតាំង បើកខ្នងស្រាល និងរំលេចដោយគ្រីស្តាល់ភ្លឺចែងចាំង។"
+            },
+            {
+                id: 5,
+                name: "រ៉ូបខារ៉ាអូខេ និងកម្មវិធីជប់លៀងពណ៌ឆាំប៉ាញ",
+                category: "gown",
+                price: 275.00,
+                rating: 4.7,
+                reviews: 22,
+                image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=600",
+                description: "រ៉ូបខ្លីសមរម្យសម្រាប់ចូលរួមកម្មវិធីជប់លៀងពេលល្ងាច ប៉ាក់ស៊្វីនយ៉ាងស្អាត។"
+            },
+            {
+                id: 6,
+                name: "ឈុតអាវប៊្លុយស៍ និងខោធ្វើការប្រណិតពណ៌ស",
+                category: "workwear",
+                price: 185.00,
+                rating: 4.9,
+                reviews: 41,
+                image: "https://images.unsplash.com/photo-1594552072238-b8a3da72ae8a?auto=format&fit=crop&q=80&w=600",
+                description: "ឈុតការងារនារីថ្នាក់ដឹកនាំ មើលទៅមានអំណាច ថ្លៃថ្នូរ និងងាយស្រួលពាក់ធ្វើការ។"
+            },
+            {
+                id: 7,
+                name: "ឈុតសូត្រខ្មែរពណ៌ផ្ទៃមេឃខ្ចី",
+                category: "silk",
+                price: 195.00,
+                rating: 4.8,
+                reviews: 12,
+                image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&q=80&w=600",
+                description: "សម្លៀកបំពាក់ប្រពៃណីសម្រាប់ពិធីបុណ្យទាន និងកម្មវិធីជួបជុំគ្រួសារ។"
+            },
+            {
+                id: 8,
+                name: "រ៉ូបβε៉លវ៉ែតខ្មៅរាត្រីកាល",
+                category: "gown",
+                price: 290.00,
+                rating: 4.9,
+                reviews: 26,
+                image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&q=80&w=600",
+                description: "សាច់ក្រណាត់βε៉លវ៉ែតទន់ល្ម្មត់ ទម្លាក់ស្មា ប៉ាក់ក្បាច់មាសនៅត្រង់កអាវយ៉ាងប្រណិត។"
+            }
+        ];
+
+        let cart = [];
+
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gold-100 flex flex-col justify-between';
+                card.innerHTML = `
+                    <div class="relative overflow-hidden aspect-[3/4] bg-gold-50">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x500/f5ecd3/84581c?text=MakTepy'">
+                        <div class="absolute top-3 right-3 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-gold-800 shadow">
+                            $${product.price.toFixed(2)}
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex justify-center">
+                            <button onclick="addToCart(${product.id})" class="w-full py-2.5 bg-gold-600 hover:bg-gold-700 text-white rounded-xl font-medium text-sm shadow-md transition-colors flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <span>បន្ថែមចូលកន្ត្រក</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between text-xs text-gold-700 mb-1 font-medium">
+                                <span class="uppercase tracking-wider">${product.category}</span>
+                                <div class="flex items-center text-amber-500">
+                                    <i class="fa-solid fa-star text-xs"></i>
+                                    <span class="ml-1 font-bold text-gray-700">${product.rating}</span>
+                                    <span class="text-gray-400 ml-0.5">(${product.reviews})</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-base text-brandDark mb-2 group-hover:text-gold-600 transition-colors">${product.name}</h3>
+                            <p class="text-xs text-gray-500 line-clamp-2 mb-4">${product.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="text-lg font-bold text-gold-700">$${product.price.toFixed(2)}</span>
+                            <button onclick="addToCart(${product.id})" class="sm:hidden px-4 py-2 bg-gold-600 text-white text-xs rounded-lg font-medium">
+                                ទិញ
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCollection(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if(btn.getAttribute('data-filter') === category) {
+                    btn.className = 'filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gold-600 text-white shadow-sm';
+                } else {
+                    btn.className = 'filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all bg-gray-100 text-gray-700 hover:bg-gold-100 hover:text-gold-800';
+                }
+            });
+            renderProducts(category);
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+            if(!drawer.classList.contains('hidden')) {
+                renderCartItems();
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            icon.className = menu.classList.contains('hidden') ? 'fa-solid fa-bars text-xl' : 'fa-solid fa-xmark text-xl';
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+
+            if(existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartBadge();
+            showToast(`បានបន្ថែម "${product.name}" ចូលក្នុងកន្ត្រក!`);
+        }
+
+        function updateQuantity(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if(item) {
+                item.quantity += delta;
+                if(item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+            }
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function updateCartBadge() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-badge').innerText = totalCount;
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items-container');
+            container.innerHTML = '';
+
+            if(cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3">
+                        <i class="fa-solid fa-bag-shopping text-4xl text-gold-300"></i>
+                        <p class="text-gray-500 font-medium">កន្ត្រកទំនិញរបស់អ្នកទទេរនៅឡើយ។</p>
+                        <button onclick="toggleCart()" class="text-sm text-gold-700 font-bold hover:underline">ស្វែងរកទំនិញ</button>
+                    </div>
+                `;
+                document.getElementById('cart-subtotal').innerText = '$០.០០';
+                return;
+            }
+
+            let subtotal = 0;
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-4 py-4';
+                div.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover rounded-xl bg-gold-50 flex-shrink-0" onerror="this.src='https://placehold.co/100x120/f5ecd3/84581c?text=Item'">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-sm text-brandDark line-clamp-1">${item.name}</h4>
+                        <p class="text-xs text-gold-700 font-semibold mt-1">$${item.price.toFixed(2)}</p>
+                        <div class="flex items-center space-x-3 mt-2">
+                            <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 rounded-full bg-gray-100 hover:bg-gold-200 text-gray-700 flex items-center justify-center text-xs">-</button>
+                            <span class="text-sm font-bold">${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 rounded-full bg-gray-100 hover:bg-gold-200 text-gray-700 flex items-center justify-center text-xs">+</button>
+                        </div>
+                    </div>
+                    <button onclick="updateQuantity(${item.id}, -${item.quantity})" class="text-gray-400 hover:text-red-500 p-2"><i class="fa-solid fa-trash-can text-sm"></i></button>
+                `;
+                container.appendChild(div);
+            });
+
+            document.getElementById('cart-subtotal').innerText = `$${subtotal.toFixed(2)}`;
+        }
+
+        function checkoutCart() {
+            if(cart.length === 0) {
+                showToast("កន្ត្រកទំនិញរបស់អ្នកទទេរ!", "error");
+                return;
+            }
+            showToast("ការបញ្ជាទិញបានជោគជ័យ! យើងខ្ញុំនឹងទាក់ទងតាម Telegram ដើម្បីបញ្ជាក់ការដឹកជញ្ជូន។");
+            cart = [];
+            updateCartBadge();
+            toggleCart();
+        }
+
+        function handleTailoringSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const garment = document.getElementById('cust-garment').value;
+            const date = document.getElementById('cust-date').value;
+
+            showToast(`អរគុណលោកជំទាវ/អ្នកនាង ${name}! សំណើកុម្ម៉ង់កាត់ "${garment}" (សម្រាប់ថ្ងៃទី ${date}) ត្រូវបានទទួលជោគជ័យ។ ជាងជំនាញនឹងទំនាក់ទំនងមកកាន់លោកអ្នកឆាប់ៗ។`);
+            document.getElementById('tailoring-form').reset();
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `max-w-md bg-brandDark text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3 border-l-4 ${type === 'success' ? 'border-gold-500' : 'border-red-500'} pointer-events-auto transform translate-y-2 opacity-0 transition-all duration-300`;
+            toast.innerHTML = `
+                <i class="fa-solid ${type === 'success' ? 'fa-circle-check text-gold-400' : 'fa-circle-exclamation text-red-400'} text-lg"></i>
+                <span class="text-sm font-medium">${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4500);
+        }
+
+        window.onload = function() {
+            renderProducts('all');
+        }
+    </script>
+</body>
+</html>
